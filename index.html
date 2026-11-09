@@ -1,0 +1,63 @@
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#142b2a" />
+    <title>호연 코드월드</title>
+    <script type="module" crossorigin src="./assets/game-DzK37_na.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/balance-CF2y4m7y.js">
+    <link rel="modulepreload" crossorigin href="./assets/ranking-menu-uqCpsIIW.js">
+    <link rel="modulepreload" crossorigin href="./assets/private-lesson-2Q4lOLEp.js">
+    <link rel="stylesheet" crossorigin href="./assets/game-Dozyibif.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="masthead">
+        <div><span class="eyebrow">호연 모험가 길드</span><h1>호연 코드월드</h1></div>
+        <div class="location"><span id="region-title">시작 마을</span><span id="region-note"></span></div>
+      </header>
+      <section class="rpg-hud" aria-label="캐릭터 상태">
+        <div><strong id="rpg-stats"></strong><span id="rpg-title"></span><span id="dash-status"></span></div>
+        <div><button id="open-character" type="button">C · 캐릭터</button><button id="open-inventory" type="button">I · 인벤토리</button><button id="open-audio" type="button">효과음</button></div>
+      </section>
+      <section class="stage" aria-label="호연 코드월드 게임 화면">
+        <div id="game" tabindex="-1"></div>
+        <div id="landmarks" aria-hidden="true"></div>
+        <button id="interaction" type="button" hidden></button>
+        <section id="intro" class="intro">
+          <div class="intro-card">
+            <span class="eyebrow">모험 일지 · 첫 번째 장</span>
+            <h2>시작 마을에<br />오신 것을 환영해요.</h2>
+            <p>마을을 걸으며 모험가 퀘스트, 상점가, 탐험맵과 모험 기록을 찾아보세요.</p>
+            <button id="start" type="button" disabled>마을에서 시작하기</button>
+          </div>
+        </section>
+      </section>
+      <footer class="controls">
+        <span><kbd>W A S D</kbd> 또는 <kbd>방향키</kbd> 이동</span>
+        <span><kbd>E</kbd> 상호작용</span>
+        <span><kbd>Shift</kbd> 빠르게 걷기</span>
+        <span><kbd>Z</kbd> 무기 휘두르기</span>
+        <span><kbd>Esc</kbd> 창 닫기</span>
+      </footer>
+      <div class="touch" aria-label="터치 조작">
+        <button data-move="up" aria-label="위로 이동">↑</button>
+        <button data-move="left" aria-label="왼쪽으로 이동">←</button>
+        <button data-move="down" aria-label="아래로 이동">↓</button>
+        <button data-move="right" aria-label="오른쪽으로 이동">→</button>
+        <button data-move="run">빠르게</button>
+        <button id="touch-interact" disabled>상호작용</button>
+        <button id="touch-swing" type="button">휘두르기</button>
+      </div>
+    </main>
+    <dialog id="panel" aria-labelledby="panel-title">
+      <header><h2 id="panel-title"></h2><button id="close-panel" type="button">마을 화면으로</button></header>
+      <div id="panel-content"></div>
+      <p id="learning-reward" role="status" hidden></p>
+      <iframe id="lesson-frame" title="1차시 파이썬 학습" hidden></iframe>
+    </dialog>
+  </body>
+</html>
+

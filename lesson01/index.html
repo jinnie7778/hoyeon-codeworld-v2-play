@@ -1,0 +1,145 @@
+<!doctype html><html lang="ko"><head><meta name="hoyeon-assignment" content="master-a41277897b6db07a38aefa6acff2605dd2b052f051574fbf491049d4aadc723c"><script>(()=>{if(new URLSearchParams(location.search).get('mode')!=='classroom')return;const values=new Map();const storage={getItem:k=>values.has(String(k))?values.get(String(k)):null,setItem:(k,v)=>values.set(String(k),String(v)),removeItem:k=>values.delete(String(k)),clear:()=>values.clear(),key:i=>[...values.keys()][i]??null,get length(){return values.size}};Object.defineProperty(window,'localStorage',{value:storage});})();</script><style data-hoyeon-font>body{font-family:system-ui,"Malgun Gothic",sans-serif;font-weight:400;letter-spacing:normal}h1,h2,h3{font-weight:700;letter-spacing:normal}button,input,select{font-family:inherit}textarea.editor,pre,code,.code,.output,.terminal{font-family:Consolas,"D2Coding",monospace}</style><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>호연 코드월드 — 시작의 마을</title><style>
+:root{--ink:#233d35;--muted:#61746a;--line:#d8e2d5;--bg:#f5f5ed;--card:#fffef9;--green:#245c48}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,'Malgun Gothic',sans-serif}button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 16px;background:var(--green);color:white}button.secondary{background:#e6eee3;color:var(--ink)}button:disabled{opacity:.5}header{background:#243e34;color:#fff;padding:16px max(20px,calc((100vw - 1100px)/2));display:flex;justify-content:space-between;align-items:center;gap:12px}header strong{font-size:20px}.layout{max-width:1100px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:205px minmax(0,1fr);gap:18px}nav,.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}nav button{display:block;width:100%;text-align:left;margin:7px 0;background:transparent;color:var(--ink)}nav button.active{background:#dcead8;font-weight:bold}.panel{display:none;min-height:500px}.panel.active{display:block}h1{font-size:29px;margin:0 0 12px}h2{font-size:23px;margin:0 0 10px}h3{font-size:18px;margin:20px 0 8px}p{margin:8px 0 15px}.muted{color:var(--muted)}.box{background:#edf3e9;border-radius:12px;padding:16px;margin:14px 0}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tabs button{background:#e8eee5;color:var(--ink)}.tabs button.sel{background:var(--green);color:#fff}.editor{width:100%;height:205px;border:1px solid #b7c9ba;border-radius:12px;padding:16px;background:#192a26;color:#efffea;font:15px/1.65 Consolas,monospace;resize:vertical;tab-size:4}.output{white-space:pre-wrap;min-height:60px;background:#f0f2ed;border-radius:10px;padding:13px;font:14px/1.6 Consolas,monospace;overflow-wrap:anywhere}.code{white-space:pre-wrap;background:#233d35;color:#f1ffed;padding:15px;border-radius:10px;font:14px/1.6 Consolas,monospace}.task{border-left:4px solid #80a48b;padding:8px 15px;background:#f0f5eb;border-radius:4px}.modal{position:fixed;inset:0;background:#132b24bb;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal.show{display:flex}.dialog{background:#fffef9;border-radius:16px;padding:24px;max-width:650px;width:100%;max-height:90vh;overflow:auto}.dialog input{width:100%;padding:12px;border:1px solid #aebeb0;border-radius:9px;margin:8px 0}.choice{border:1px solid var(--line);padding:12px;border-radius:10px;cursor:pointer;margin:8px 0}.choice.sel{border:2px solid #317457;background:#eff6ea}small{color:var(--muted)}@media(max-width:700px){.layout{grid-template-columns:1fr;margin:12px auto}nav{display:flex;overflow:auto;padding:8px}nav button{min-width:max-content}header{padding:12px}h1{font-size:24px}}
+.terminal{background:#e9eee8;padding:16px;border-radius:12px;white-space:pre-wrap;font:15px/1.75 Consolas,monospace;min-height:56px}.terminal .typed{color:#176b9b;font-weight:700}.terminal .prompt{color:#34574a}.status{padding:10px 14px;background:#edf5e8;border-radius:10px;margin:10px 0}.highlight{color:#0d6a8a;font-weight:800;background:#e4f4fa;border-radius:4px;padding:0 3px}.example{background:#f2f5ed;border:1px solid #d6e2d3;border-radius:12px;padding:14px;margin:15px 0}.example h3{margin:0 0 8px}.note{color:#586f63;font-size:14px}.target{background:#eaf2ea;border-radius:12px;padding:14px;margin:12px 0}.target h3{margin-top:0}.terminal .typed:after{content:"  ← 입력한 값";font:11px system-ui;color:#668396}#missionOutput,#learnOutput,#practiceOutput{min-height:72px}textarea.editor{height:215px}.error{color:#9a3028;font-weight:600}.choice.sel{background:#e7f2e7} .chip{display:inline-block;background:#e4eee1;padding:2px 9px;border-radius:7px;margin:3px;font-size:13px}@media(max-width:700px){.terminal{font-size:13px}} </style></head><body>
+<header><strong>호연 코드월드</strong><div class="row"><span id="runtime" style="font-size:13px">파이썬 실행 준비</span><button class="secondary" onclick="openGuide()">학습 지도</button></div></header>
+<div class="layout"><nav id="nav"><button data-page="home" class="active">시작의 마을</button><button data-page="learn">문법 배우기</button><button data-page="practice">연습하기</button><button data-page="mission">최종 임무</button><button data-page="review">학습 정리</button></nav><main>
+<section id="home" class="panel active"><h1>시작의 마을</h1><p>마을 안내인이 첫 번째 부탁을 전했습니다. 파이썬으로 메시지를 보여주고, 사람의 대답을 받는 프로그램을 만들어 보세요.</p><div class="box"><b>오늘의 목표</b><p>① <code>print()</code>로 글과 숫자를 출력한다.<br>② <code>input()</code>으로 사용자에게 질문하고 답을 받는다.<br>③ 입력받은 답을 다시 출력한다.<br>④ 출력·입력을 활용한 프로그램을 직접 완성한다.</p></div><p>오늘은 변수와 자료형을 깊이 배우지 않습니다. 입력값을 담는 이름은 잠깐 사용하고, 다음 차시에 자세히 배웁니다.</p><button onclick="go('learn')">학습 시작</button></section>
+<section id="learn" class="panel"><h2>문법 배우기</h2><div id="lessonTabs" class="tabs"></div><div id="lessonText"></div><h3>직접 실행해 보기</h3><textarea id="learnCode" class="editor" spellcheck="false"></textarea><div class="row"><button onclick="runArea('learn')">실행</button><button class="secondary" onclick="resetArea('learn')">예제 되돌리기</button></div><h3>출력 화면</h3><div id="learnOutput" class="output">실행 결과가 여기에 표시됩니다.</div></section>
+<section id="practice" class="panel"><h2>단계별 연습</h2><p class="muted">결과를 예상하고, 빈칸을 채우고, 오류를 수정한 다음 직접 작성해 보세요.</p><div id="practiceTabs" class="tabs"></div><div id="practiceText" class="task"></div><textarea id="practiceCode" class="editor" spellcheck="false"></textarea><div class="row"><button onclick="runArea('practice')">실행하고 확인</button><button class="secondary" onclick="showHint('practice')">도움말</button><button class="secondary" onclick="resetArea('practice')">다시 시작</button></div><div id="practiceFeedback" class="box" style="display:none"></div><div id="practiceHint" class="box" style="display:none"></div><h3>출력 화면</h3><div id="practiceOutput" class="output">실행 결과가 여기에 표시됩니다.</div></section>
+<section id="mission" class="panel"><h2>최종 임무</h2><p>세 가지 모험 중 하나를 고르고, 난이도에 맞춰 입력·출력 프로그램을 완성하세요.</p><div id="missionChoices"></div><div id="targetExample"></div><h3>난이도</h3><div id="difficultyTabs" class="tabs"></div><div id="missionText" class="task"></div><h3>코드 작성</h3><textarea id="missionCode" class="editor" spellcheck="false"></textarea><div class="row"><button onclick="runArea('mission')">실행</button><button onclick="checkMission()">자동 검사</button><button class="secondary" onclick="showHint('mission')">도움말</button><button class="secondary" onclick="resetArea('mission')">다시 시작</button></div><div id="missionFeedback" class="box" style="display:none"></div><div id="missionHint" class="box" style="display:none"></div><h3>출력 화면</h3><div id="missionOutput" class="output">직접 실행한 뒤 자동 검사를 진행하세요.</div><div class="row"><button id="submit" disabled onclick="submitMission()">최종 제출</button><span id="submitStatus"></span></div></section>
+<section id="review" class="panel"><h2>학습 정리</h2><div id="reviewText"></div><div class="box"><b>핵심 표현</b><div class="code">print("안녕하세요!")&#10;name = input("이름을 입력하세요: ")&#10;print("반가워요,", name)</div></div><p>오늘은 출력과 입력을 배웠습니다. 다음 차시에는 입력한 내용을 저장하는 변수와 자료형을 배웁니다.</p><button onclick="go('mission')">최종 임무로 돌아가기</button></section>
+</main></div>
+<div id="inputModal" class="modal" role="dialog" aria-modal="true"><div class="dialog"><h2>프로그램 입력</h2><p id="inputDescription">프로그램이 입력을 기다리고 있습니다.</p><label id="inputLabel" for="inputValue">입력값</label><input id="inputValue" autocomplete="off"><div class="row"><button id="inputConfirm">입력하고 계속</button><button class="secondary" id="inputCancel">실행 취소</button></div><small>입력값은 실행 중인 프로그램에 전달됩니다.</small></div></div>
+<div id="guideModal" class="modal" role="dialog" aria-modal="true"><div class="dialog"><div class="row" style="justify-content:space-between"><h2>오늘의 학습 지도</h2><button class="secondary" onclick="closeGuide()">닫기</button></div><div id="guideText"></div></div></div>
+<script>
+const $=id=>document.getElementById(id);
+const lessons=[
+{title:'출력하기',desc:'<span class="highlight">print()</span>는 화면에 내용을 보여주는 명령입니다.<br><b>문자</b>는 <span class="highlight">큰따옴표(" ") 또는 작은따옴표(&#39; &#39;)</span>로 감싸고, <b>숫자</b>는 따옴표 없이 출력해요.',code:'print("안녕하세요!")\nprint(100)',tip:'글을 따옴표로 감싸지 않으면 이름으로 인식해 오류가 날 수 있어요.'},
+{title:'여러 값 출력하기',desc:'쉼표 <span class="highlight">,</span>로 구분하면 여러 값을 출력하며 <b>공백</b>이 생겨요.<br>문자열 사이에 <span class="highlight">+</span>를 쓰면 <b>공백 없이 연결</b>돼요.',code:'print("안녕", "친구")\nprint("안녕" + "친구")\nprint("레벨:", 3)',tip:'문자열과 숫자를 +로 바로 연결하면 오류가 나요. 이번 시간에는 문자끼리만 +로 연결해요.'},
+{title:'입력받기',desc:'<span class="highlight">input()</span>은 질문을 보여주고 답을 받는 명령이에요. 입력한 내용을 나중에 사용하려면 이름에 잠깐 담아 둡니다.',code:'name = input("이름: ")\nprint("안녕,", name)',tip:'name은 입력한 답을 기억하는 이름이에요. 변수는 다음 시간에 자세히 배워요.'},
+{title:'입력값 활용하기',desc:'<span class="highlight">input()</span>으로 받은 값을 <span class="highlight">print()</span>에서 사용할 수 있어요. 질문을 두 번 하면 서로 다른 답을 받을 수도 있죠.',code:'name = input("이름: ")\njob = input("직업: ")\nprint(name + "님, 환영합니다!")\nprint("직업:", job)',tip:'입력창에 답을 입력하면 출력 화면에서 질문·입력값·출력 결과를 구분해 볼 수 있어요.'}
+];
+const practices=[
+{title:'출력 확인하기',desc:'예제를 실행하여 <b>문자</b>와 <b>숫자</b>가 어떻게 출력되는지 살펴보세요.',code:'print("시작의 마을")\nprint(100)',tests:[{inputs:[],output:'시작의 마을\n100'}],hint:['문자는 따옴표로 감싸고 숫자는 따옴표 없이 쓸 수 있어요.'],observe:true},
+{title:'쉼표와 더하기 비교',desc:'예제를 실행하여 <b>쉼표(,)</b>와 <b>더하기(+)</b>의 공백 차이를 살펴보세요.',code:'print("안녕", "친구")\nprint("안녕" + "친구")',tests:[{inputs:[],output:'안녕 친구\n안녕친구'}],hint:['쉼표는 공백을 넣지만 문자열 +는 공백 없이 이어 붙여요.'],observe:true},
+{title:'따옴표 오류 찾기',desc:'코드에서 <b>따옴표 오류</b>를 수정해 「마을에 도착했습니다!」를 출력하세요.',code:'print("마을에 도착했습니다!)',tests:[{inputs:[],output:'마을에 도착했습니다!'}],hint:['글의 시작과 끝에 같은 종류의 따옴표가 필요해요.']},
+{title:'출력 코드 완성하기',desc:'「안녕하세요, 모험가님!」이 정확하게 출력되도록 빈칸을 채워 보세요.',code:'print(           )',tests:[{inputs:[],output:'안녕하세요, 모험가님!'}],hint:['print() 안에 출력할 문장을 따옴표로 감싸서 넣어 보세요.']},
+{title:'이름 오류 수정하기',desc:'입력한 이름으로 「반가워요, 하늘」처럼 출력되도록 <b>잘못된 이름</b>을 수정하세요.',code:'name = input("이름: ")\nprint("반가워요,", nmae)',tests:[{inputs:['하늘'],output:'반가워요, 하늘'},{inputs:['바다'],output:'반가워요, 바다'}],hint:['입력받은 값을 저장한 이름과 출력할 때 사용한 이름의 철자를 비교해 보세요.']},
+{title:'입력 코드 완성하기',desc:'이름을 입력받아 「하늘님, 환영합니다!」처럼 출력하도록 코드를 완성하세요.',code:'name = input("이름: ")\n# 아래에 출력 코드를 작성하세요',tests:[{inputs:['하늘'],output:'하늘님, 환영합니다!'},{inputs:['바다'],output:'바다님, 환영합니다!'}],hint:['문자열 +를 사용하면 이름 뒤에 "님, 환영합니다!"를 붙일 수 있어요.']},
+{title:'직접 작성 ①',desc:'처음부터 작성해 보세요. <b>이름을 입력</b>받아 「안녕, 하늘」처럼 출력하는 프로그램을 만드세요.',code:'',tests:[{inputs:['하늘'],output:'안녕, 하늘'},{inputs:['바다'],output:'안녕, 바다'}],hint:['먼저 name = input("이름: ")으로 입력받고 print()를 작성해 보세요.']},
+{title:'직접 작성 ②',desc:'처음부터 작성해 보세요. <b>이름과 좋아하는 동물</b>을 입력받아 「하늘 / 고양이」처럼 출력하는 프로그램을 만드세요.',code:'',tests:[{inputs:['하늘','고양이'],output:'하늘 / 고양이'},{inputs:['바다','토끼'],output:'바다 / 토끼'}],hint:['input()을 두 번 쓰고, print(name, "/", animal)과 같은 형태를 생각해 보세요.']}
+];
+const missionThemes=[
+ {title:'모험가 등록소',story:'마을에 도착한 모험가의 정보를 등록증에 적어 주세요.',fields:[['이름','모험가 이름: '],['직업','희망 직업: '],['출신','출신 마을: '],['무기','좋아하는 무기: '],['목표','모험 목표: ']],vars:['이름','직업','출신','무기','목표'],samples:[['하늘','마법사','호연 마을','지팡이','마왕 물리치기'],['바다','궁수','푸른 숲','활','보물 찾기']],heading:'=== 모험가 등록증 ===',footer:'등록이 완료되었습니다!'},
+ {title:'마을 안내소',story:'마을을 방문한 여행자의 정보를 안내문으로 정리해 주세요.',fields:[['이름','방문자 이름: '],['목적지','가고 싶은 곳: '],['이동 수단','이동 수단: '],['동행인','함께 가는 사람: '],['방문 이유','방문 이유: ']],vars:['이름','목적지','이동수단','동행인','방문이유'],samples:[['하늘','마법 상점','마차','가온','마법 도구 구입'],['바다','도서관','도보','나래','책 읽기']],heading:'=== 마을 안내 ===',footer:'즐거운 여행 되세요!'},
+ {title:'마법 편지',story:'마법 우편으로 보낼 편지 내용을 정리해 주세요.',fields:[['보내는 사람','보내는 사람: '],['받는 사람','받는 사람: '],['전할 말','전할 말: '],['보내는 장소','보내는 장소: '],['전달 방법','전달 방법: ']],vars:['보내는사람','받는사람','전할말','보내는장소','전달방법'],samples:[['가온','하늘','힘내!','호연 마을','전서구'],['나래','바다','반가워!','푸른 숲','마법 우편']],heading:'=== 마법 편지 ===',footer:'편지가 완성되었습니다!'}
+];
+const levels=[
+ {label:'새싹',n:2,lines:3,description:'입력 코드와 제목은 이미 있어요. 입력한 내용을 출력하는 두 줄만 완성해요.'},
+ {label:'숙련',n:3,lines:5,description:'입력 한 줄을 추가하고, 입력받은 정보와 마무리 문장을 출력해요.'},
+ {label:'전설',n:4,lines:6,description:'입력 네 가지를 활용해 제목부터 마무리까지 직접 완성해요.'}
+];
+function expected(theme,level,values){
+ const rows=[theme.heading];
+ for(let i=0;i<levels[level].n;i++)rows.push(theme.fields[i][0]+': '+values[i]);
+ if(level>=1)rows.push(theme.footer);
+ return rows.join('\n');
+}
+function makeMission(theme,level){
+ const n=levels[level].n, v=theme.vars, f=theme.fields;
+ const inputLine=i=>`${v[i]} = input("${f[i][1]}")`;
+ let code='';
+ if(level===0){
+  code=[inputLine(0),inputLine(1),'',`print("${theme.heading}")`,
+   `# ① ${f[0][0]} 항목을 출력하세요.`,
+   `# ② ${f[1][0]} 항목을 출력하세요.`].join('\n');
+ }else if(level===1){
+  code=[inputLine(0),inputLine(1),
+   `# ① ${f[2][0]} 항목을 입력받아 ${v[2]}에 저장하세요.`,'',
+   `print("${theme.heading}")`,
+   `# ② ${f[0][0]}, ${f[1][0]}, ${f[2][0]} 항목을 각각 한 줄씩 출력하세요.`,
+   `# ③ 마지막에 "${theme.footer}"를 출력하세요.`].join('\n');
+ }else{
+  code=[inputLine(0),
+   `# ① ${f[1][0]}, ${f[2][0]}, ${f[3][0]} 항목을 차례로 입력받으세요.`,'',
+   `# ② 제목 "${theme.heading}"를 출력하세요.`,
+   `# ③ ${f.slice(0,4).map(x=>x[0]).join(', ')} 항목을 각각 한 줄씩 출력하세요.`,
+   `# ④ 마지막에 "${theme.footer}"를 출력하세요.`].join('\n');
+ }
+ return {tests:theme.samples.map(sample=>({inputs:sample.slice(0,n),output:expected(theme,level,sample)})),code};
+}
+const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"\"":'&quot;',"'":'&#39;'}[c]));
+let li=0,pi=0,mi=0,diff=0,hintCount={practice:0,mission:0},passed=false,busy=false;
+let saved={};try{saved=JSON.parse(localStorage.getItem('hoyeon_l1_v3_drafts')||'{}')}catch{}
+function save(){try{localStorage.setItem('hoyeon_l1_v3_drafts',JSON.stringify(saved))}catch{}}
+function go(page){document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===page));document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===page));if(page==='review')renderReview();window.scrollTo(0,0)}
+document.querySelectorAll('nav button').forEach(x=>x.onclick=()=>go(x.dataset.page));
+function renderLesson(){$('lessonTabs').innerHTML=lessons.map((l,i)=>`<button class="${i===li?'sel':''}" onclick="li=${i};renderLesson()">${i+1}. ${l.title}</button>`).join('');let l=lessons[li];$('lessonText').innerHTML=`<p>${l.desc}</p><div class="box"><b>기억하세요</b><p>${l.tip}</p></div>`;$('learnCode').value=saved['l'+li]??l.code;clearOutput('learn')}
+function renderPractice(){$('practiceTabs').innerHTML=practices.map((p,i)=>`<button class="${i===pi?'sel':''}" onclick="pi=${i};renderPractice()">${i+1}번${localStorage.getItem('hoyeon_l1_p'+i)==='1'?' ✓':''}</button>`).join('');let p=practices[pi];$('practiceText').innerHTML=`<b>${p.title}</b><p>${p.desc}</p>`;$('practiceCode').value=saved['p'+pi]??p.code;clearOutput('practice');$('practiceHint').style.display='none';$('practiceFeedback').style.display='none';hintCount.practice=0}
+function renderMission(){
+ const t=missionThemes[mi],lv=levels[diff],m=makeMission(t,diff);
+ $('missionChoices').innerHTML=missionThemes.map((theme,i)=>`<div class="choice ${mi===i?'sel':''}" onclick="mi=${i};passed=false;renderMission()"><b>${theme.title}</b><br><small>${theme.story}</small></div>`).join('');
+ $('difficultyTabs').innerHTML=levels.map((x,i)=>`<button class="${diff===i?'sel':''}" onclick="diff=${i};passed=false;renderMission()">${x.label}</button>`).join('');
+ const labels=t.fields.slice(0,lv.n).map(f=>`<b>${escapeHtml(f[0])}</b>`).join(', ');
+ let steps='';
+ if(diff===0){
+  steps=`<ol><li>준비된 입력 코드 두 줄을 확인하세요. 직접 다시 작성하지 않아도 돼요.</li><li>제목 아래에 <b>print() 두 줄</b>을 작성해 ${labels} 항목을 출력하세요.</li><li>제목은 이미 출력되므로 다시 작성하지 마세요.</li></ol>`;
+ }else if(diff===1){
+  steps=`<ol><li>준비된 입력 코드 두 줄 아래에 <b>${escapeHtml(t.fields[2][0])}</b> 항목을 입력받는 코드 한 줄을 추가하세요.</li><li>이미 작성된 제목 아래에 ${labels} 항목을 <b>각각 한 줄씩</b> 출력하세요.</li><li>맨 마지막에 <b>${escapeHtml(t.footer)}</b>를 출력하세요.</li></ol>`;
+ }else{
+  steps=`<ol><li>첫 번째 입력 코드는 제공되어 있어요. 나머지 <b>3가지 정보</b>를 차례대로 입력받으세요.</li><li><b>${escapeHtml(t.heading)}</b>이라는 제목을 출력하세요.</li><li>${labels} 항목을 <b>각각 한 줄씩</b> 출력하세요.</li><li>마지막에 <b>${escapeHtml(t.footer)}</b>를 출력하세요. 불필요한 구분선은 넣지 않아도 돼요.</li></ol>`;
+ }
+ $('missionText').innerHTML=`<b>${t.title} · ${lv.label}</b><p>${t.story}</p><p><b>이번 임무:</b> 입력 ${lv.n}개 · 출력 ${lv.lines}줄</p><p>${lv.description}</p>${steps}<p class="note">아래 목표 출력의 <b>항목명과 콜론(:), 순서</b>를 그대로 맞춰 주세요. 입력값은 달라도 됩니다.</p>`;
+ const ex=m.tests[0];
+ const inputRows=t.fields.slice(0,lv.n).map((f,i)=>`<div><span class="prompt">${escapeHtml(f[1])}</span><span class="typed">${escapeHtml(ex.inputs[i])}</span></div>`).join('');
+ const outputRows=ex.output.split('\n').map(line=>{
+  const pos=line.indexOf(': ');
+  return pos>=0?`<div><b>${escapeHtml(line.slice(0,pos+1))}</b> ${escapeHtml(line.slice(pos+2))}</div>`:`<div>${escapeHtml(line)}</div>`;
+ }).join('');
+ $('targetExample').innerHTML=`<div class="target"><h3>예시 입력</h3><div class="terminal">${inputRows}</div><p class="note">파란 글씨는 사용자가 입력하는 값이에요.</p><h3>목표 출력</h3><div class="terminal">${outputRows}</div><p class="note">위의 <b>목표 출력</b>이 정확히 나오도록 코드를 작성하세요. 입력할 때 보이는 질문은 목표 출력에 포함하지 않아요.</p></div>`;
+ $('missionCode').value=saved[`m_v4_${mi}_${diff}`]??m.code;
+ clearOutput('mission');$('missionHint').style.display='none';$('missionFeedback').style.display='none';hintCount.mission=0;passed=false;$('submit').disabled=true;$('submitStatus').textContent='';
+}
+function clearOutput(area){$(area+'Output').innerHTML='<span class="note">코드를 실행하면 여기에 표시됩니다.</span>'}
+function store(area){let key=area==='learn'?'l'+li:area==='practice'?'p'+pi:`m_v4_${mi}_${diff}`;saved[key]=$(area+'Code').value;save();if(area==='mission'){passed=false;$('submit').disabled=true;$('missionFeedback').style.display='none'}}
+['learn','practice','mission'].forEach(a=>$(a+'Code').addEventListener('input',()=>store(a)));
+function resetArea(area){let code=area==='learn'?lessons[li].code:area==='practice'?practices[pi].code:makeMission(missionThemes[mi],diff).code;$(area+'Code').value=code;store(area);clearOutput(area)}
+function showHint(area){
+ let hints;
+ if(area==='practice')hints=practices[pi].hint;
+ else if(diff===0)hints=[
+  '입력과 제목은 이미 완성되어 있어요. print() 두 줄만 작성하면 됩니다.',
+  `예: print("${missionThemes[mi].fields[0][0]}:", ${missionThemes[mi].vars[0]}) 처럼 항목명과 값을 쉼표로 구분해 보세요.`,
+  '두 번째 항목도 같은 방법으로 출력하세요. 목표 출력의 콜론(:)과 순서를 확인하세요.'
+ ];
+ else if(diff===1)hints=[
+  `먼저 ${missionThemes[mi].vars[2]} = input("${missionThemes[mi].fields[2][1]}") 형태로 세 번째 입력을 받아요.`,
+  '제목은 이미 있어요. 그 아래에 print()로 정보 세 줄을 출력하세요.',
+  `마지막 줄은 print("${missionThemes[mi].footer}")처럼 작성해요.`
+ ];
+ else hints=[
+  '첫 번째 입력 코드를 참고해서 나머지 세 가지 정보를 입력받아 보세요.',
+  '제목 한 줄 → 정보 네 줄 → 마무리 한 줄, 총 여섯 줄을 출력하세요.',
+  '정보를 출력할 때는 print("항목명:", 변수) 형태를 활용하고, 추가 구분선은 넣지 마세요.'
+ ];
+ let i=Math.min(hintCount[area],hints.length-1);
+ $(area+'Hint').style.display='block';$(area+'Hint').textContent=`도움말 ${i+1}: ${hints[i]}`;hintCount[area]++;
+}
+function openGuide(){$('guideText').innerHTML=lessons.map((l,i)=>`<h3>${i+1}. ${l.title}</h3><p>${l.desc}</p><div class="code">${escapeHtml(l.code)}</div><p class="note">${l.tip}</p>`).join('');$('guideModal').classList.add('show')}
+function closeGuide(){$('guideModal').classList.remove('show')}
+function renderReview(){$('reviewText').innerHTML=`<p>연습 완료: ${practices.filter((_,i)=>localStorage.getItem('hoyeon_l1_p'+i)==='1').length}/8</p><p>최종 임무: ${escapeHtml(localStorage.getItem('hoyeon_l1_submitted')||'아직 제출하지 않았어요.')}</p>`}
+const workerCode="let py;\nasync function init(){if(py)return;importScripts('https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js');py=await loadPyodide()}\nself.onmessage=async e=>{\ntry{\n await init();\n const events=[];\n py.setStdout({batched:s=>events.push({type:'output',text:s+'\\n'})});\n py.setStderr({batched:s=>events.push({type:'output',text:s+'\\n'})});\n let vals=[...e.data.inputs],index=0;\n py.globals.set('_lesson_take_input', (prompt)=>{\n  if(index>=vals.length)throw Error('EOFError: 입력값이 부족합니다.');\n  const value=String(vals[index++]);events.push({type:'input',prompt:String(prompt),value});return value;\n });\n await py.runPythonAsync(`import builtins\ndef _lesson_input(prompt=''):\n    return _lesson_take_input(str(prompt))\nbuiltins.input = _lesson_input\n`+'\\n'+e.data.code);\n self.postMessage({ok:true,events,output:events.filter(x=>x.type==='output').map(x=>x.text).join('').trimEnd()});\n}catch(err){self.postMessage({ok:false,error:String(err).slice(0,1500)})}\n};";
+function execute(code,inputs,timeout=22000){return new Promise(resolve=>{let url=URL.createObjectURL(new Blob([workerCode],{type:'text/javascript'})),w=new Worker(url);URL.revokeObjectURL(url);let done=false,timer=setTimeout(()=>finish({ok:false,error:'실행 시간이 초과되었습니다. 반복 실행 여부를 확인하세요.'}),timeout);function finish(r){if(done)return;done=true;clearTimeout(timer);w.terminate();resolve(r)}w.onmessage=e=>finish(e.data);w.onerror=()=>finish({ok:false,error:'파이썬 실행 환경을 불러오지 못했습니다. 인터넷 연결을 확인하세요.'});w.postMessage({code,inputs})})}
+function getPrompts(code){let out=[];let re=/\binput\s*\(\s*(['"])((?:\\.|(?!\1)[^\\])*)\1\s*\)/g;let m;while((m=re.exec(code))!==null)out.push(m[2]);return out}
+function countInputs(code){return (code.split('\n').map(line=>line.replace(/#.*$/,'')).join('\n').match(/\binput\s*\(/g)||[]).length}
+function collectInputs(code){let count=Math.min(countInputs(code),12),prompts=getPrompts(code);if(!count)return Promise.resolve([]);return new Promise((resolve,reject)=>{let arr=[],idx=0,modal=$('inputModal'),val=$('inputValue');modal.classList.add('show');function step(){$('inputDescription').textContent=`${count}개 입력 중 ${idx+1}번째`;$('inputLabel').textContent=prompts[idx]||`${idx+1}번째 입력값`;val.value='';val.focus()}function cleanup(){modal.classList.remove('show');$('inputConfirm').onclick=null;$('inputCancel').onclick=null;val.onkeydown=null}$('inputConfirm').onclick=()=>{arr.push(val.value);idx++;if(idx===count){cleanup();resolve(arr)}else step()};$('inputCancel').onclick=()=>{cleanup();reject(Error('입력을 취소했습니다.'))};val.onkeydown=e=>{if(e.key==='Enter')$('inputConfirm').click()};step()})}
+function renderEvents(events){if(!events||!events.length)return '<span class="note">출력된 내용이 없습니다.</span>';return events.map(e=>e.type==='input'?`<div><span class="prompt">${escapeHtml(e.prompt)}</span><span class="typed">${escapeHtml(e.value)}</span></div>`:`<span>${escapeHtml(e.text)}</span>`).join('')}
+function normalize(s){return s.replace(/\r\n/g,'\n').trimEnd()}
+function explainError(s){if(/SyntaxError/.test(s))return '문법 오류가 있어요. 따옴표와 괄호가 짝을 이루는지 확인하세요.';if(/NameError/.test(s))return '사용한 이름을 찾지 못했어요. 철자를 확인하세요.';if(/EOFError/.test(s))return '입력값이 부족해요. input() 개수를 확인하세요.';return '코드를 다시 확인해 주세요. '+s.split('\n').slice(-1)[0]}
+function setFeedback(area,msg,ok){let el=$(area+'Feedback');el.style.display='block';el.innerHTML=`<b>${ok?'✓':'!'}</b> ${escapeHtml(msg)}`}
+async function runArea(area){if(busy)return;let code=$(area+'Code').value,out=$(area+'Output');busy=true;out.innerHTML='<span class="note">실행 중… 첫 실행은 파이썬을 불러오는 데 시간이 걸릴 수 있어요.</span>';try{let inputs=await collectInputs(code);let r=await execute(code,inputs);out.innerHTML=r.ok?renderEvents(r.events):`<span class="error">${escapeHtml(explainError(r.error||''))}</span>`;if(area==='practice'&&r.ok){let p=practices[pi],valid=true;for(const t of p.tests){let v=await execute(code,t.inputs);if(!v.ok||normalize(v.output)!==normalize(t.output)){valid=false;break}}if(valid){localStorage.setItem('hoyeon_l1_p'+pi,'1');setFeedback('practice','연습 통과! 다음 문제로 넘어가 보세요.',true);renderPracticeTabsOnly()}else setFeedback('practice','실행은 되었지만 목표 출력과 달라요. 다시 확인해 보세요.',false)}}catch(e){out.innerHTML=`<span class="note">${escapeHtml(e.message)}</span>`}finally{busy=false}}
+function renderPracticeTabsOnly(){document.querySelectorAll('#practiceTabs button').forEach((b,i)=>b.textContent=(i+1)+'번'+(localStorage.getItem('hoyeon_l1_p'+i)==='1'?' ✓':''))}
+async function checkMission(){if(busy)return;busy=true;let code=$('missionCode').value,m=makeMission(missionThemes[mi],diff);$('missionFeedback').style.display='none';$('missionOutput').innerHTML='<span class="note">서로 다른 입력으로 검사하고 있어요…</span>';try{if(countInputs(code)<levels[diff].n){setFeedback('mission',`input()이 ${levels[diff].n}번 필요해요.`,false);return}let ok=true,first;for(const t of m.tests){let r=await execute(code,t.inputs);if(!first)first=r;if(!r.ok||normalize(r.output)!==normalize(t.output)){ok=false;break}}$('missionOutput').innerHTML=first&&first.ok?renderEvents(first.events):`<span class="error">${escapeHtml(explainError(first?.error||''))}</span>`;passed=ok;$('submit').disabled=!ok;setFeedback('mission',ok?'모든 기본 검사 통과! 최종 제출할 수 있어요.':'예시의 출력 순서·문구·줄바꿈을 확인하세요. 다른 입력값으로도 검사합니다.',ok)}finally{busy=false}}
+function submitMission(){if(!passed)return;let name=missionThemes[mi].title+' · '+levels[diff].label;localStorage.setItem('hoyeon_l1_submitted',name);localStorage.setItem('hoyeon_l1_final_code',$('missionCode').value);$('submitStatus').textContent='제출 완료!';go('review')}
+renderLesson();renderPractice();renderMission();$('runtime').textContent='실행 시 파이썬을 불러옵니다';
+</script></body></html>
