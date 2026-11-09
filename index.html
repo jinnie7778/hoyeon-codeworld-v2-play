@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#142b2a" />
     <title>호연 코드월드</title>
-    <script type="module" crossorigin src="./assets/game-BUDDyMAd.js"></script>
+    <script type="module" crossorigin src="./assets/game-DOGdppFj.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/balance-kc6RdcBB.js">
     <link rel="modulepreload" crossorigin href="./assets/private-lesson-C4Uju5eX.js">
     <link rel="modulepreload" crossorigin href="./assets/ranking-menu-CiU75jLe.js">
-    <link rel="stylesheet" crossorigin href="./assets/game-CVNoxQse.css">
+    <link rel="stylesheet" crossorigin href="./assets/game-D4EV2p2c.css">
   </head>
   <body>
     <main class="shell">
@@ -43,13 +43,18 @@
         <span><kbd>Esc</kbd> 창 닫기</span>
       </footer>
       <div class="touch" aria-label="터치 조작">
-        <button data-move="up" aria-label="위로 이동">↑</button>
-        <button data-move="left" aria-label="왼쪽으로 이동">←</button>
-        <button data-move="down" aria-label="아래로 이동">↓</button>
-        <button data-move="right" aria-label="오른쪽으로 이동">→</button>
-        <button data-move="run">빠르게</button>
-        <button id="touch-interact" disabled>상호작용</button>
-        <button id="touch-swing" type="button">휘두르기</button>
+        <div class="joystick-group">
+          <div class="joystick" data-joystick role="group" aria-label="이동 조이스틱 · 손가락을 끌어 이동">
+            <span class="joystick-guide" aria-hidden="true">✦</span>
+            <span class="joystick-thumb" aria-hidden="true"></span>
+          </div>
+          <span class="touch-hint">끌어서 이동</span>
+        </div>
+        <div class="touch-actions">
+          <button data-move="run" type="button" aria-label="누르는 동안 빠르게 걷기 · 대시 해금 후 대시">빠르게</button>
+          <button id="touch-interact" type="button" disabled>상호작용</button>
+          <button id="touch-swing" type="button">휘두르기</button>
+        </div>
       </div>
     </main>
     <dialog id="panel" aria-labelledby="panel-title">
